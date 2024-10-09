@@ -1,0 +1,18 @@
+
+
+```{r}
+library(dplyr)
+customers <- data.frame(
+  customer_id = c(1, 2, 3, 4, 5),
+  customer_name = c('Alice', 'Bob', 'Charlie', 'David', 'Eve')
+)
+orders <- data.frame(
+  order_id = c(101, 102, 103, 104),
+  customer_id = c(1, 1, 2, 3),
+  product_name = c('Laptop', 'Phone', 'Tablet', 'Monitor')
+)
+customer_orders_left <- left_join(customers, orders, by = "customer_id")
+print(customer_orders_left)
+
+```
+
