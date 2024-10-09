@@ -1,0 +1,58 @@
+---
+title: "Untitled"
+author: "adhi"
+date: "2024-10-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Load necessary library
+library(dplyr)
+
+# Sample data for customers table
+customers <- data.frame(
+  customer_id = c(1, 2, 3),
+  customer_name = c("Alice", "Bob", "Charlie")
+)
+
+# Sample data for orders table
+orders <- data.frame(
+  order_id = c(101, 102, 103, 104),
+  customer_id = c(1, 2, 1, 3),
+  product_name = c("Laptop", "Phone", "Tablet", "Monitor")
+)
+
+# Perform Inner Join
+result <- customers %>%
+  inner_join(orders, by = "customer_id") %>%
+  select(customer_name, product_name)
+
+# Display the result
+print(result)
+
+```
+
+
+```{r}
+library(dplyr)
+customers <- data.frame(
+  customer_id = c(1, 2, 3, 4),
+  customer_name = c('Alice', 'Bob', 'Charlie', 'David')
+)
+orders <- data.frame(
+  order_id = c(101, 102, 103, 104),
+  customer_id = c(1, 1, 2, 3),
+  product_name = c('Laptop', 'Phone', 'Tablet', 'Monitor')
+)
+customer_orders <- inner_join(customers, orders, by = "customer_id")
+print(customer_orders)
+
+```
+1)customers: A data frame containing customer information.
+2)orders: A data frame containing orders with customer IDs and product names.
+3)inner_join(orders, by = "customer_id"): Performs an inner join on customer_id to get the matching records from both data frames.
+4)select(customer_name, product_name): Selects only the customer name and product name from the joined data.
